@@ -20,7 +20,6 @@ const Tasks: FC<TasksProps> = ({ tasks, setTasks, setTaskDurations }) => {
       inputRef.current[indexRef.current]?.focus();
     }
   });
-
   return (
     <div id="gantt-grid-container__tasks">
       <div className="gantt-task-row"></div>
@@ -32,7 +31,6 @@ const Tasks: FC<TasksProps> = ({ tasks, setTasks, setTaskDurations }) => {
             <input
               data-task-id={tsk?.id}
               value={tsk?.name}
-              ref={(el) => (inputRef.current[i] = el as HTMLInputElement)}
             />
           </div>
         ))}

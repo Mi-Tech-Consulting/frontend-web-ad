@@ -2,10 +2,10 @@ import './globals.css';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SessionProvider } from 'next-auth/react';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import Frame  from '@mitech/shared-components/component/frame-with-sidebar-and-navbar';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import Frame from '@mitech/shared-components/component/frame-with-sidebar-and-navbar';
 import { NotificationProvider } from '@/components/ui/NotificationContext';
 export const metadata = {
   title: 'Welcome to Mitech Recruitment',
@@ -18,20 +18,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
-    <html lang="en" >
+    <html lang="en">
       <body className="static h-full bg-gray-50">
         <SessionProvider>
           <NextUIProvider>
-            <NextThemesProvider attribute="class" defaultTheme='light'>
+            <NextThemesProvider attribute="class" defaultTheme="light">
               <main className="text-foreground bg-background">
                 <Frame>
-                <NotificationProvider>{children}</NotificationProvider>
+                  <NotificationProvider>{children}</NotificationProvider>
                 </Frame>
               </main>
               <Analytics />
-              <SpeedInsights />{/* Vercel Speed Insights */}
+              <SpeedInsights />
+              {/* Vercel Speed Insights */}
             </NextThemesProvider>
           </NextUIProvider>
         </SessionProvider>

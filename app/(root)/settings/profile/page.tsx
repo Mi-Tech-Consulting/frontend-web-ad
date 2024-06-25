@@ -1,8 +1,9 @@
 'use client';
-import SettingsButton from '../_Componenets/SettingsButton';
-import SettingsContainer from '../_Componenets/SettingsContainer';
-import SettingsInput from '../_Componenets/SettingsInput';
-import SettingsTitle from '../_Componenets/SettingsTitle';
+import SettingsButton from '@/components/ui/SettingsButton';
+import SettingsContainer from '@/components/ui/SettingsContainer';
+import SettingsInput from '@/components/ui/SettingsInput';
+import SettingsTitle from '@/components/ui/SettingsTitle';
+
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 

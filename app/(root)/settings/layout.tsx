@@ -1,11 +1,8 @@
-// NOTE: maybe change this to show more details
-// export const metadata = {
-//   title: 'Welcome to Mitech Recruitment',
-//   description:
-//     'A user admin dashboard configured with Next.js, Postgres, NextAuth, Tailwind CSS, TypeScript, ESLint, and Prettier.'
-// };
+export const metadata = {
+  title: 'Settings | Mitech Recruitment'
+};
 
-import Sidebar from './_Componenets/Sidebar';
+import Sidebar from '@/components/ui/Sidebar';
 
 export default function SettingsLayout({
   children

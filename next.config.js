@@ -5,23 +5,22 @@ try {
   devconfig = require('./dev.next.config.js');
 } catch (ex) { }
 
-const config = {
-  async rewrites() {
-    return {
-      fallback: [
-        {
-          source: '/',
-          destination: 'https://dev.mitech.ai/',
-          basePath: false
-        },
-        {
-          source: '/:path*',
-          destination: 'https://dev.mitech.ai/:path*',
-          basePath: false
-        }
-      ]
-    };
-  }
+const nextConfig = {
+  basePath: '/ad',
+  crossOrigin: 'use-credentials',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatar.vercel.sh'
+      }
+    ]
+  },
+  ...devconfig
 };
 
-module.exports = config;
+module.exports = nextConfig;

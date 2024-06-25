@@ -1,9 +1,9 @@
 'use client';
-import PhoneInput from '../_Componenets/PhoneInput';
-import SettingsButton from '../_Componenets/SettingsButton';
-import SettingsContainer from '../_Componenets/SettingsContainer';
-import SettingsInput from '../_Componenets/SettingsInput';
-import SettingsTitle from '../_Componenets/SettingsTitle';
+import PhoneInput from '@/components/ui/PhoneInput';
+import SettingsButton from '@/components/ui/SettingsButton';
+import SettingsContainer from '@/components/ui/SettingsContainer';
+import SettingsInput from '@/components/ui/SettingsInput';
+import SettingsTitle from '@/components/ui/SettingsTitle';
 import { useState } from 'react';
 
 export default function Page() {

@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="w-full">
       <SettingsTitle title="Password" />
-      <SettingsContainer className="mt-5">
+      <SettingsContainer className="mt-5 mb-10">
         <div className="flex flex-col ml-8 mb-10 w-full mx-5">
           <form
             className="mt-8 "

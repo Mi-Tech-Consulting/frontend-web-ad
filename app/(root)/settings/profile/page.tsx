@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <div className="w-full">
       <SettingsTitle title="Profile" />
-      <SettingsContainer className="mt-5">
+      <SettingsContainer className="mt-5 mb-10">
         <div className="flex flex-col ml-8 mt-8 mb-10 w-full mx-5">
           <p className="text-[16px] text-black font-semibold">Photo</p>
           <div className="flex items-center mt-4 gap-5">
@@ -32,18 +32,31 @@ export default function Page() {
             ) : (
               <div className="w-14 h-14 rounded-full bg-gray-300"></div>
             )}
-            <button
-              className="px-5 bg-[#EBEDF0] border-1 border-[#DBDFE3] text-black rounded-md py-2 font-light"
-              onClick={() => {
-                //TODO: do the logic here
-              }}
-            >
-              Upload New Picture
-            </button>
+            <div>
+              <label
+                htmlFor="file"
+                className="inline-block px-5 py-2 max-w-[250px] bg-[#EBEDF0] border border-[#DBDFE3] text-black rounded-md font-light cursor-pointer text-center"
+              >
+                Upload New Image
+              </label>
+              <input
+                id="file"
+                type="file"
+                className="hidden"
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  if (e.target.files) {
+                    setImage(URL.createObjectURL(e.target.files[0]));
+                    //TODO: do the logic here
+                  }
+                }}
+              />
+            </div>
             <button
               className="text-red-500"
               onClick={() => {
                 //TODO: do the logic here
+                setImage('');
               }}
             >
               Delete
@@ -61,7 +74,7 @@ export default function Page() {
               //TODO: do the logic here
             }}
           >
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
               <SettingsInput
                 title="First Name"
                 type="text"

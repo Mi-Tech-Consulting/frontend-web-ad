@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Pagination from '@/components/ui/pagination';
 import Search from '@mitech/shared-components/ui/search';
 import AdsTable from '@/components/ui/ads-table';
@@ -15,7 +15,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Page({
-  searchParams,
+  searchParams
 }: {
   searchParams?: {
     query?: string;
@@ -26,7 +26,9 @@ export default function Page({
   const currentPage = Number(searchParams?.page) || 1;
   const [adsAll, setAds] = useState<Advertisement[]>([]);
   useEffect(() => {
-    fetchAds().then(data => setAds(data.result.filter((ad:any) => ad.status !== 'deleted')));
+    fetchAds().then((data) =>
+      setAds(data.result.filter((ad: any) => ad.status !== 'deleted'))
+    );
   }, []);
   useEffect(() => {
     const message = Cookies.get('notification_stop_ad');
@@ -78,33 +80,36 @@ export default function Page({
       Cookies.remove('notification_update_ad');
     }
   }, []);
-  const totalPages = GetFilteredAdsPages(adsAll,query);
-return ( 
-  <div className="w-full">
-     <header className="flex items-center justify-between px-6 py-8 bg-gray-900 text-white">
+  const totalPages = GetFilteredAdsPages(adsAll, query);
+  return (
+    <div className="w-full">
+      <header className="flex items-center justify-between px-6 py-8 bg-gray-900 text-white">
         <div className="flex items-center space-x-4">
           <h2 className="text-lg font-medium">Manage Ads</h2>
-        </div>       
+        </div>
       </header>
-    <div className='w-full max-w-[80%] justify-center items-center m-auto'>
-      <div className="mt-4 flex items-center justify-center gap-2 md:mt-8">
-        <Search placeholder="Search ad..." />
-        <CreateAd />
-      </div>
-      <AdsTable query={query} currentPage={currentPage} />
-      <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
-      </div>
-    </div>   
-    <br /><hr />
-    <div className='w-full max-w-[80%] justify-center items-center m-auto pb-40'>
-      <div className="mt-4 items-center justify-center gap-2 md:mt-8">
-        <div className='row'><p className='ml-3 font-bold'>AD Campaign Gantt Chart</p></div>
-        <div className="row">
-        <GanttChart adsAll={adsAll}/>          
+      <div className="w-full max-w-[80%] justify-center items-center m-auto">
+        <div className="mt-4 flex items-center justify-center gap-2 md:mt-8">
+          <Search placeholder="Search ad..." />
+          <CreateAd />
         </div>
+        <AdsTable query={query} currentPage={currentPage} />
+        <div className="mt-5 flex w-full justify-center">
+          <Pagination totalPages={totalPages} />
         </div>
-    </div>    
-  </div>
-);
+      </div>
+      <br />
+      <hr />
+      <div className="w-full max-w-[80%] justify-center items-center m-auto pb-40">
+        <div className="mt-4 items-center justify-center gap-2 md:mt-8">
+          <div className="row">
+            <p className="ml-3 font-bold">AD Campaign Gantt Chart</p>
+          </div>
+          <div className="row">
+            <GanttChart adsAll={adsAll} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -22,7 +22,7 @@
     "tailwindcss-animate": "^1.0.7",
     "react-dropzone": "^14.2.3",
     "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
+    "jspdf": "^3.0.1",
     "xlsx": "^0.18.5",
     "zod": "^3.23.7"
   },
